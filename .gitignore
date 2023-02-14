@@ -21,6 +21,9 @@
 
 # Visual Studio cache directory
 .vs/
+.vsconfig
+.vscode/
+.DS_store
 
 # Gradle cache directory
 .gradle/
@@ -58,3 +61,4 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Assets/Art/Charecter/Ch50_nonPBR.fbx
