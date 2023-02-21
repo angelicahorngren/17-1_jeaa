@@ -79,6 +79,10 @@ namespace SG
 
         private void HandleRollInput(float delta)
         {
+            if (lockMovement)
+            {
+                return;
+            }
             b_Input = inputActions.PlayerActions.Roll.IsPressed();
             if (b_Input)
             {
@@ -91,7 +95,6 @@ namespace SG
                 if (rollInputTimer > 0 && rollInputTimer < 0.3f)
                 {
                     rollFlag = true;
-                    lockMovement = true;
 
                 }
                 rollInputTimer = 0;

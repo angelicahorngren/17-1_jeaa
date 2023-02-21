@@ -144,9 +144,12 @@ namespace SG
         {
             if (animaterHandler.anim.GetBool("isInteracting"))
                 return;
-            
+            if (inputHandler.lockMovement == true)
+                return;
+
             if (inputHandler.rollFlag)
             {
+                inputHandler.lockMovement = true;
                 moveDirection = cameraObject.forward * inputHandler.vertical;
                 moveDirection += cameraObject.right * inputHandler.horizontal;
                 if (inputHandler.moveAmount > .1f)
