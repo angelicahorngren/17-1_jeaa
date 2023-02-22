@@ -14,35 +14,34 @@ namespace SG
         public float mouseX;
         public float mouseY;
 
-        public bool b_Input;
-
+        [SerializeField]
+        bool b_Input;
+        
         public bool rollFlag;
-        public bool sprintFlag;
+        public bool lockMovement;
+
+        [SerializeField]
+        bool sprintFlag;
         public float rollInputTimer;
-        public bool isInteracting;
+
 
         PlayerControls inputActions;
-        CameraHandler cameraHandler;
+        
 
         Vector2 movementInput;
         Vector2 cameraInput;
 
 
-
-        private void Start()
+        public bool getb_Input()
         {
-            cameraHandler = CameraHandler.singleton;
+            return b_Input;
         }
 
-        private void FixedUpdate()
+        public bool getsprintFlag()
         {
-            float delta = Time.fixedDeltaTime;
-            if (cameraHandler != null)
-            {
-                cameraHandler.FollowTarget(delta);
-                cameraHandler.HandleCameraRotation(delta, mouseX, mouseY);
-            }
+            return sprintFlag;
         }
+
 
         private void OnEnable()
         {
@@ -80,6 +79,10 @@ namespace SG
 
         private void HandleRollInput(float delta)
         {
+            if (lockMovement)
+            {
+                return;
+            }
             b_Input = inputActions.PlayerActions.Roll.IsPressed();
             if (b_Input)
             {
@@ -88,14 +91,15 @@ namespace SG
             }
             else
             {
-                if (rollInputTimer >0 && rollInputTimer < 0.5f)
+                sprintFlag = false;
+                if (rollInputTimer > 0 && rollInputTimer < 0.3f)
                 {
-                    sprintFlag = false;
                     rollFlag = true;
+
                 }
-             
+                rollInputTimer = 0;
+
             }
-            rollInputTimer = 0;
         }
 
 
