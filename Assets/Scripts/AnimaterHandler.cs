@@ -6,9 +6,10 @@ namespace SG
 {
     public class AnimaterHandler : MonoBehaviour
     {
+        PlayerManager playerManager;
         public Animator anim;
-        public ControlsMac inputHandeler;
-        public PlayerLocmotion playerLocmotion;
+         ControlsMac inputHandler;
+        PlayerLocmotion playerLocmotion;
         int vertical;
         int horizontal;
         public bool canRotate;
@@ -20,8 +21,9 @@ namespace SG
 
         public void Initialize()
         {
+            playerManager = GetComponentInParent<PlayerManager>();
             anim = GetComponent<Animator>();
-            inputHandeler = GetComponentInParent<ControlsMac>();
+            inputHandler = GetComponentInParent<ControlsMac>();
             playerLocmotion = GetComponentInParent<PlayerLocmotion>();
             vertical = Animator.StringToHash("Vertical");
             horizontal = Animator.StringToHash("Horizontal");
@@ -92,7 +94,7 @@ namespace SG
 
             #endregion
 
-            if (isSprinting)
+            if (isSprinting && inputHandler.moveAmount > 0)
             {
                 v = 2;
                 h = horizontalMovement;
@@ -122,7 +124,7 @@ namespace SG
 
         private void OnAnimatorMove()
         {
-            if (inputHandeler.isInteracting == false)
+            if (playerManager.isInteracting == false)
                 return;
 
 
@@ -138,6 +140,9 @@ namespace SG
 
 
 
-
+        public void StoppedRoll()
+        {
+            inputHandler.lockMovement = false;
+        }
     }
 }
