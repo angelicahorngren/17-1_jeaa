@@ -10,9 +10,12 @@ namespace SG
     {
         Transform cameraObject;
         ControlsMac inputHandler;
+        DancesHandler dancesHandler;
         public Vector3 moveDirection;
 
         PlayerManager playerManager;
+
+        public bool HandleMovementiscalled;
 
 
         [HideInInspector]
@@ -25,6 +28,10 @@ namespace SG
 
         public new Rigidbody rigidbody;
         public GameObject normalCamera;
+
+        [Header("Power UP Stats")]
+        public float PowerUpInputTimer;
+
 
         [Header("Ground & Air Detection Stats")]
         [SerializeField]
@@ -55,6 +62,7 @@ namespace SG
             playerManager = GetComponent<PlayerManager>();
             rigidbody = GetComponent<Rigidbody>();
             inputHandler = GetComponent<ControlsMac>();
+            dancesHandler = GetComponent<DancesHandler>();
             animaterHandler = GetComponentInChildren<AnimaterHandler>();
             cameraObject = Camera.main.transform;
             mytransform = transform;
@@ -98,6 +106,8 @@ namespace SG
 
         public void HandleMovement(float delta)
         {
+            HandleMovementiscalled = true;
+
             if (inputHandler.lockMovement)
                 return;
 
@@ -136,6 +146,7 @@ namespace SG
             }
 
 
+           
 
         }
 
@@ -181,7 +192,7 @@ namespace SG
             Vector3 origin = mytransform.position;
             origin.y += groundDetectionRayStartPoint;
 
-            if(Physics.Raycast(origin, mytransform.forward, out hit, 0.4f))
+            if (Physics.Raycast(origin, mytransform.forward, out hit, 0.4f))
             {
                 moveDirection = Vector3.zero;
 
@@ -190,7 +201,7 @@ namespace SG
             if (playerManager.isInAir)
             {
                 rigidbody.AddForce(-Vector3.up * fallingSpeed);
-                rigidbody.AddForce(moveDirection * fallingSpeed / 10f);
+                rigidbody.AddForce(moveDirection * fallingSpeed / 5f);
             }
 
             Vector3 dir = moveDirection;
@@ -237,7 +248,7 @@ namespace SG
 
                 if (playerManager.isInAir == false)
                 {
-                    if(playerManager.isInteracting == false)
+                    if (playerManager.isInteracting == false)
                     {
                         animaterHandler.PlayTargetAnimation("Falling", true);
                     }
@@ -252,7 +263,7 @@ namespace SG
 
             if (playerManager.isGrounded)
             {
-                if(playerManager.isInteracting || inputHandler.moveAmount > 0)
+                if (playerManager.isInteracting || inputHandler.moveAmount > 0)
                 {
                     mytransform.position = Vector3.Lerp(mytransform.position, targetPosition, Time.deltaTime);
                 }
@@ -262,11 +273,147 @@ namespace SG
                 }
             }
 
+            if (playerManager.isInteracting || inputHandler.moveAmount > 0.1f)
+            {
+                mytransform.position = Vector3.Lerp(mytransform.position, targetPosition, Time.deltaTime / 0.1f);
+            }
+            else
+            {
+                mytransform.position = targetPosition;
+            }
+
 
 
         }
 
 
+
+        public void HandlePowerUp(float delta)
+        {
+
+            if (animaterHandler.anim.GetBool("isInteracting"))
+                return;
+            if (inputHandler.lockMovement == true)
+                return;
+
+
+            if (inputHandler.PowerUpFlag)
+            {
+                inputHandler.lockMovement = true;
+                moveDirection = cameraObject.forward * inputHandler.vertical;
+                moveDirection += cameraObject.right * inputHandler.horizontal;
+                animaterHandler.PlayTargetAnimation("PowerUp", true);
+                moveDirection.y = 0;
+                PowerUpInputTimer += delta;
+                playerManager.isPowerUP = true;
+
+                if (PowerUpInputTimer > 20)
+                {
+                    inputHandler.PowerUpFlag = false;
+                    playerManager.isPowerUP = false;
+                    PowerUpInputTimer = 0;
+
+                }
+
+
+            }
+
+        }
+
+
+
+
+        public void HandleSprintingAttack(float delta)
+        {
+            if (playerManager.isPowerUP)
+            {
+                sprintSpeed = 10;
+            }
+            else
+            {
+                sprintSpeed = 7;
+            }
+
+            if (playerManager.isPowerUP && playerManager.isSprinting && inputHandler.rb_Input)
+            {
+                inputHandler.lockMovement = true;
+                moveDirection = cameraObject.forward * inputHandler.vertical;
+                moveDirection += cameraObject.right * inputHandler.horizontal;
+                if (inputHandler.moveAmount > .1f)
+                {
+                    animaterHandler.PlayTargetAnimation("OH_Light_Attack_01", true);
+                    moveDirection.y = 0;
+                    Quaternion rollRotation = Quaternion.LookRotation(moveDirection);
+                    mytransform.rotation = rollRotation;
+                    rigidbody.AddForce(transform.forward * 10, ForceMode.VelocityChange);
+                    rigidbody.AddForce(-Vector3.up * fallingSpeed);
+                }
+            }
+            if ( playerManager.isPowerUP && playerManager.isSprinting && inputHandler.rt_Input)
+            {
+                inputHandler.lockMovement = true;
+                moveDirection = cameraObject.forward * inputHandler.vertical;
+                moveDirection += cameraObject.right * inputHandler.horizontal;
+                if (inputHandler.moveAmount > .1f)
+                {
+                    animaterHandler.PlayTargetAnimation("OH_Heavy_Attack_01", true);
+                    moveDirection.y = 0;
+                    Quaternion rollRotation = Quaternion.LookRotation(moveDirection);
+                    mytransform.rotation = rollRotation;
+                    rigidbody.AddForce(transform.forward * 10, ForceMode.VelocityChange);
+                    rigidbody.AddForce(-Vector3.up * fallingSpeed);
+                }
+
+            }
+        }
+
+
+
+
+
+        public void HandleTwerk(float delta)
+        {
+            if (animaterHandler.anim.GetBool("isInteracting"))
+                return;
+            if (inputHandler.lockMovement == true)
+                return;
+
+            if (dancesHandler.TwerkFlag)
+            {
+                inputHandler.lockMovement = true;
+                moveDirection = cameraObject.forward * inputHandler.vertical;
+                moveDirection += cameraObject.right * inputHandler.horizontal;
+                animaterHandler.PlayTargetAnimation("Twerk", true);
+                moveDirection.y = 0;
+            }
+
+            dancesHandler.TwerkFlag = false;
+
+
+        }
+
+        public void HandleWaveHipHop(float delta)
+        {
+            if (animaterHandler.anim.GetBool("isInteracting"))
+                return;
+            if (inputHandler.lockMovement == true)
+                return;
+
+            if (dancesHandler.HipHopFlag)
+            {
+                inputHandler.lockMovement = true;
+                moveDirection = cameraObject.forward * inputHandler.vertical;
+                moveDirection += cameraObject.right * inputHandler.horizontal;
+                animaterHandler.PlayTargetAnimation("Wave Hip Hop", true);
+                moveDirection.y = 0;
+            }
+
+            rigidbody.AddForce(-Vector3.up * walkingspeed);
+
+            dancesHandler.HipHopFlag = false;
+
+
+        }
 
 
 
