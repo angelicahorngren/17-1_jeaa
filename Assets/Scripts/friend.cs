@@ -2,40 +2,66 @@ using UnityEngine;
 
 public class friend : MonoBehaviour
 {
-    public GameObject player;  
-    public float followDistance = 5f;  //boss follows the player at this distance
-    public float stopDistance = 0.5f;  //boss stops following the player at this distance
-    public float startFollowDistance = 10f; //boss sees and starts to follow player at this distance
-    public float speed = 0.1f;  //movement speed
-    public float hoverHeight = 10f;  //placement above the ground
+    public GameObject player;
+    public GameObject projectilePrefab; //prefab for the projectiles
+    public float followDistance = 15f;  
+    public float stopDistance = 10f;  
+    public float startFollowDistance = 30f;
+    public float speed = 0.1f;
+    public float hoverHeight = 10f; //boss hover height
+    public float attackDelay = 1.0f; //delay between attacks
+    public float projectileSpeed = 5f; //speed of the projectiles
 
-    void Update()
+    private bool isAttacking = false; //flag to indicate if the boss is attacking
+    private float attackTimer = 0.0f; //keep track of attack delay
+
+  void Update()
     {
-        //gets distance to player
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
-        //if the player is within startFollowDistance and the distance to player is greater than followDistance
-        if (distance <= startFollowDistance && distance > followDistance)
+        // If the player is within range and the boss is not already attacking
+        if (distance <= stopDistance && !isAttacking)
         {
-            Vector3 direction = (player.transform.position - transform.position).normalized;
-            transform.position += direction * speed * Time.deltaTime;
-            transform.LookAt(player.transform);
+            isAttacking = true;
 
-            //hover above ground
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, -transform.up, out hit))
+            //start attack timer
+            attackTimer = attackDelay;
+        }
+
+        if (isAttacking)
+        {
+            //decrement the attack timer
+            attackTimer -= Time.deltaTime;
+
+            //if the attack time is over
+            if (attackTimer <= 0.0f)
             {
-                transform.position = new Vector3(transform.position.x, hit.point.y + hoverHeight, transform.position.z);
+                GameObject projectile = Instantiate(projectilePrefab, transform.position + Vector3.up * hoverHeight, Quaternion.identity);
+
+                //get distance between the boss and the player
+                float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+                //get direction to the player's head
+                Vector3 playerHeadPosition = player.GetComponent<CapsuleCollider>().bounds.max;
+                Vector3 direction = (playerHeadPosition - projectile.transform.position).normalized;
+
+                //sets velocity towards the player's head
+                projectile.GetComponent<Rigidbody>().velocity = direction * projectileSpeed * distanceToPlayer;
+
+                //reset attack timer
+                attackTimer = attackDelay;
+
+                isAttacking = false;
             }
         }
-        
-        else if (distance <= stopDistance)
+
+        //if player is within range to follow, but not within range to stop
+        else if (distance <= startFollowDistance && distance > stopDistance)
         {
-            //do nothing
-        }
-        //stay still but look at player
-        else
-        {
+            //move the boss towards the player
+            Vector3 direction = (player.transform.position - transform.position).normalized;
+            transform.position += direction * speed * Time.deltaTime;
+            
             transform.LookAt(player.transform);
 
             //hover above ground
@@ -46,4 +72,5 @@ public class friend : MonoBehaviour
             }
         }
     }
+
 }
