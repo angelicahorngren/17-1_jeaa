@@ -112,6 +112,18 @@ namespace SG
             anim.CrossFade(targetAnim, 0.2f);
         }
 
+        public void CancelDancingAnimation()
+        {
+            if (playerLocmotion.HandleMovementiscalled)
+            {
+                StoppedRoll();
+                
+
+            }
+
+
+        }
+
         public void CanRotation()
         {
             canRotate = true;
@@ -120,6 +132,16 @@ namespace SG
         public void StopRotation()
         {
             canRotate = false;
+        }
+
+        public void EnableCombo()
+        {
+            anim.SetBool("CanDoCombo",true);
+        }
+
+        public void DisableCombo()
+        {
+            anim.SetBool("CanDoCombo", false);
         }
 
         private void OnAnimatorMove()
@@ -138,11 +160,34 @@ namespace SG
 
         }
 
+        public void freezMovement()
+        {
+            inputHandler.lockMovement = true;
+        }
 
 
         public void StoppedRoll()
         {
             inputHandler.lockMovement = false;
         }
+
+
+        public void DontAllowMovmentIfStill()
+        {
+            if(playerManager.isSprinting)
+            {
+                return;
+            }
+
+            else
+            {
+                freezMovement();
+            }
+        }
+
+
+
+
+
     }
 }
