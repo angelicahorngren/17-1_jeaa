@@ -15,9 +15,18 @@ namespace SG
         {
             PlayerStats playerStats = other.GetComponent<PlayerStats>();
 
+
             if (playerStats != null)
             {
-                playerStats.TakeDamage(damage); 
+                if (this.tag == "AI Bot")
+                {
+                    playerStats.TakeDamage(damage, true);
+                }
+                else
+                {
+                    playerStats.TakeDamage(damage);
+                }
+
             }
         }
     }

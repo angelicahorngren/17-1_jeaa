@@ -337,10 +337,10 @@ AnimatorStateMachine:
     m_Position: {x: 280, y: -500, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2232376283377240642}
-    m_Position: {x: 280, y: -440, z: 0}
+    m_Position: {x: 280, y: -430, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4129400664105698311}
-    m_Position: {x: 280, y: -360, z: 0}
+    m_Position: {x: 270, y: -360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6183479608244754831}
     m_Position: {x: 280, y: -280, z: 0}
@@ -358,10 +358,10 @@ AnimatorStateMachine:
     m_Position: {x: 280, y: -560, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3711174603646612210}
-    m_Position: {x: 280, y: -620, z: 0}
+    m_Position: {x: 230, y: -660, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8485441792958975612}
-    m_Position: {x: 70, y: -540, z: 0}
+    m_Position: {x: -30, y: -640, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2148234037482554890}
     m_Position: {x: 610, y: -530, z: 0}
@@ -546,7 +546,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Humanoid
+  m_Name: Enemyandroid
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Vertical
@@ -967,7 +967,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a5ee0a739322d48979a9eb4f90cd33a8, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2f24bbdf08a77435c976abd672f8427e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1374,7 +1374,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a5ee0a739322d48979a9eb4f90cd33a8, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2f24bbdf08a77435c976abd672f8427e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
