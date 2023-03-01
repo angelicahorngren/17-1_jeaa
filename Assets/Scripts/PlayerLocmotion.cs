@@ -70,8 +70,6 @@ namespace SG
             cameraObject = Camera.main.transform;
             mytransform = transform;
             animaterHandler.Initialize();
-            collider.height = originCollisionHightAir;
-
             playerManager.isGrounded = true;
             //ignoreForGroundCheck = (1 << 8 | 1 << 11);
 
@@ -262,7 +260,6 @@ namespace SG
                     vel.Normalize();
                     rigidbody.velocity = vel * (movementSpeed / 2);
                     playerManager.isInAir = true;
-                    collider.center.Set(0, originCollisionHightAir, 0);
 
 
                 }
