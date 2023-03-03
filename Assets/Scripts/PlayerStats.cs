@@ -37,10 +37,26 @@ namespace SG
 
         public void TakeDamage(int damage)
         {
+
+            currentHealth = currentHealth - damage;
+            healthBar.SetCurrentHealth(currentHealth);
+            
+          
+            animaterHandler.PlayTargetAnimation("Take Damage", true);
+           
+
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                animaterHandler.PlayTargetAnimation("Death_01", true);
+            }
+        }
+
+        public void TakeDamage(int damage, bool enemy= true)
+        {
             currentHealth = currentHealth - damage;
             healthBar.SetCurrentHealth(currentHealth);
 
-            animaterHandler.PlayTargetAnimation("Take Damage", true);
 
             if (currentHealth <= 0)
             {

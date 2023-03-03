@@ -23,9 +23,10 @@ namespace SG
         [HideInInspector]
         public AnimaterHandler animaterHandler;
 
+        public float originCollisionHight = 0.9f;
+        public float originCollisionHightAir = 1.3f;
 
-
-
+        public CapsuleCollider collider;
         public new Rigidbody rigidbody;
         public GameObject normalCamera;
 
@@ -59,15 +60,16 @@ namespace SG
 
         void Start()
         {
+
             playerManager = GetComponent<PlayerManager>();
             rigidbody = GetComponent<Rigidbody>();
+            collider = GetComponent<CapsuleCollider>();
             inputHandler = GetComponent<ControlsMac>();
             dancesHandler = GetComponent<DancesHandler>();
             animaterHandler = GetComponentInChildren<AnimaterHandler>();
             cameraObject = Camera.main.transform;
             mytransform = transform;
             animaterHandler.Initialize();
-
             playerManager.isGrounded = true;
             //ignoreForGroundCheck = (1 << 8 | 1 << 11);
 
@@ -200,6 +202,7 @@ namespace SG
 
             if (playerManager.isInAir)
             {
+
                 rigidbody.AddForce(-Vector3.up * fallingSpeed);
                 rigidbody.AddForce(moveDirection * fallingSpeed / 5f);
             }
@@ -218,6 +221,7 @@ namespace SG
                 normalVerctor = hit.normal;
                 Vector3 tp = hit.point;
                 playerManager.isGrounded = true;
+                collider.center.Set(0, originCollisionHight, 0);
                 targetPosition.y = tp.y;
 
                 if (playerManager.isInAir)
@@ -257,12 +261,14 @@ namespace SG
                     rigidbody.velocity = vel * (movementSpeed / 2);
                     playerManager.isInAir = true;
 
+
                 }
 
             }
 
             if (playerManager.isGrounded)
             {
+
                 if (playerManager.isInteracting || inputHandler.moveAmount > 0)
                 {
                     mytransform.position = Vector3.Lerp(mytransform.position, targetPosition, Time.deltaTime);
