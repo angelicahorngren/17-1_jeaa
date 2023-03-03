@@ -6,7 +6,9 @@ TagManager:
   tags:
   - ground
   - Enemy
-  - AI Bot
+  - friend
+  - projectile
+  - katana
   layers:
   - Default
   - TransparentFX
@@ -38,8 +40,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - FriendProjectiles
+  - Friend
   m_SortingLayers:
   - name: Default
     uniqueID: 0

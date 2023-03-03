@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5103915052519783997}
   - component: {fileID: 8177239669557883288}
   - component: {fileID: 6241869711247279442}
+  - component: {fileID: 3126002856924964097}
   m_Layer: 0
   m_Name: katana
-  m_TagString: Untagged
+  m_TagString: katana
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3126002856924964097
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5593311438191305863}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 3.845682, y: 5.643867, z: 114.9719}
+  m_Center: {x: 0.00000029802294, y: 0.0000005960463, z: 0.000007629396}

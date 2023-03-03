@@ -1,31 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageOnCollision : MonoBehaviour
+namespace SG
 {
-    public float damage = 10f; 
-
-    private void OnCollisionEnter(Collision collision)
+    public class DamageOnCollision : MonoBehaviour
     {
-        //check if collision is with player
-        if (collision.gameObject.CompareTag("Player"))
-        {/*
-            Health playerHealth = collision.gameObject.GetComponent<Health>();
-
-            //if player is not dead, apply damage
-            if (playerHealth != null && != 0f)
+        public int damage = 25;
+        
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("friend"))
             {
-                playerHealth.TakeDamage(damage);
-                Destroy(gameObject);
-            }*/
-        }
-        else if (collision.gameObject.CompareTag("friend"))
-        {
-            //do nothing if it hits the boss
-        }
-        else
-        {
-            // If the collision object is not a friend, destroy the projectile
-            Destroy(gameObject);
+                friend friendStats = collision.gameObject.GetComponent<friend>();
+
+                if (friendStats != null)
+                {
+                    friendStats.TakeDamage(damage);
+                }
+            }
         }
     }
 }
