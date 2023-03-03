@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+
 
 public class friend : MonoBehaviour
 {
@@ -12,15 +14,30 @@ public class friend : MonoBehaviour
     public float attackDelay = 1.0f; //delay between attacks
     public float projectileSpeed = 5f; //speed of the projectiles
 
+    public int health = 100; // boss's health
+
     private bool isAttacking = false; //flag to indicate if the boss is attacking
     private float attackTimer = 0.0f; //keep track of attack delay
 
+  void Start()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Friend");
+    }
+
   void Update()
     {
+
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
-        // If the player is within range and the boss is not already attacking
-        if (distance <= stopDistance && !isAttacking)
+        if (health <= 0)
+        {
+            //handle the boss's death
+            DestroyFriend();
+            //Destroy(gameObject);
+        }
+
+        //if player within range and boss not already attacking
+        else if (distance <= stopDistance && !isAttacking)
         {
             isAttacking = true;
 
@@ -37,6 +54,8 @@ public class friend : MonoBehaviour
             if (attackTimer <= 0.0f)
             {
                 GameObject projectile = Instantiate(projectilePrefab, transform.position + Vector3.up * hoverHeight, Quaternion.identity);
+                projectile.layer = LayerMask.NameToLayer("FriendProjectiles");
+                projectile.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
                 //get distance between the boss and the player
                 float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
@@ -72,5 +91,28 @@ public class friend : MonoBehaviour
             }
         }
     }
+        public void TakeDamage(int damage)
+    {
+        Debug.Log("Friend takes " + damage + " damage.");
+
+        health -= damage;
+    }
+
+    
+public void DestroyFriend()
+{
+    
+    transform.Find("Stylized_Fish_Model").GetComponent<MeshRenderer>().enabled = false;
+    
+    
+    FadeOut fadeOut = GetComponent<FadeOut>();
+    if (fadeOut != null)
+    {
+        fadeOut.StartFadeOut();
+    }
+ 
+}
 
 }
+
+

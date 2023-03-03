@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2502,6 +2502,14 @@ PrefabInstance:
     - target: {fileID: 2350291570072627717, guid: 1c821377876f34192b884f6ebf107cbb, type: 3}
       propertyPath: m_Name
       value: Health Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350291570072627718, guid: 1c821377876f34192b884f6ebf107cbb, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350291571684694642, guid: 1c821377876f34192b884f6ebf107cbb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2350291571684694642, guid: 1c821377876f34192b884f6ebf107cbb, type: 3}
       propertyPath: m_AnchorMax.y
