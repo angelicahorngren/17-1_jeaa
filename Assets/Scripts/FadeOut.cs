@@ -12,10 +12,26 @@ public class FadeOut : MonoBehaviour
         material = meshRenderer.material;
     }
 
-    public void StartFadeOut()
+public void StartDissolve()
+{
+    // Disable collider to prevent further interactions with the player
+    Collider collider = GetComponent<Collider>();
+    if (collider != null)
     {
-        StartCoroutine(FadeOutCoroutine());
+        collider.enabled = false;
     }
+
+    // Play particle system
+    ParticleSystem particleSystem = GetComponentInChildren<ParticleSystem>();
+    if (particleSystem != null)
+    {
+        particleSystem.Play();
+    }
+
+    // Destroy the game object after a delay
+    Destroy(gameObject, duration);
+}
+
 
     private IEnumerator FadeOutCoroutine()
     {

@@ -6,23 +6,37 @@ namespace SG
 {
     public class GasDamage : MonoBehaviour
     {
+        public CreateObject createObject;
+
+        //public GameObject soundBox;
+
+        public GameObject player;
+
+        public PlayDeathSound playDeathSound;
+
+        private PlayerStats playerStats;
+
         private int damage = 1;
 
-        private void Start()
+        public void Start()
         {
             StartCoroutine(DealDamage());
+            playerStats = player.GetComponent<PlayerStats>();
+            //playDeathSound = soundBox.GetComponent<PlayDeathSound>();
         }
 
-        private IEnumerator DealDamage()
+        public IEnumerator DealDamage()
         {
             while (true)
             {
                 yield return new WaitForSeconds(0.15f);
-                PlayerStats playerStats = FindObjectOfType<PlayerStats>();
-                if (playerStats != null)
+                if (playerStats != null && playerStats.currentHealth > 0)
                 {
-                    Debug.Log("Player found within range.");
-                    playerStats.TakeDamage(damage);
+                    playerStats.TakeDamage(damage, true);
+                    if(playerStats != null && playerStats.currentHealth <= 0 && !createObject.hasSpawned){
+                        Debug.Log("SOUND PLAYED");
+                        playDeathSound.PlaySound();
+                    }
                 }
             }
         }

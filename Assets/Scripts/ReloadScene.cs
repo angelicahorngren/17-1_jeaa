@@ -5,13 +5,27 @@ namespace SG
 {
     public class ReloadScene : MonoBehaviour
     {
-        private void Update()
+        public float delay = 10f; 
+
+        public GameObject screenFader;
+
+            private void Update()
+    {
+        PlayerStats playerStats = FindObjectOfType<PlayerStats>();
+        if (playerStats != null && playerStats.currentHealth == 0)
         {
-            PlayerStats playerStats = FindObjectOfType<PlayerStats>();
-            if (playerStats != null && playerStats.currentHealth == 0)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+            Invoke("Reload", delay);
+            screenFader.GetComponent<ScreenFader>().FadeIn();
         }
     }
+
+    private void Reload()
+    {
+        Debug.Log("Reload");
+        screenFader.GetComponent<ScreenFader>().FadeOut();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+}
+
+
 }
