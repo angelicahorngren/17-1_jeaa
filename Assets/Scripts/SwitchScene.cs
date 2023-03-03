@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,13 +7,18 @@ public class SwitchScene : MonoBehaviour
 {
     public string sceneName; // the name of the scene you want to load
     public GameObject player; // reference to the player GameObject
+    //public int xPos;
+    //public int yPos;
+    //public int zPos;
 
-   private void OnCollisionEnter(Collision other)
+   public void OnCollisionEnter(Collision other)
 {
+    Debug.Log("Test");
     if (other.gameObject == player)
     {
         Debug.Log("Loading scene: " + sceneName);
         SceneManager.LoadScene(sceneName); // load the specified scene
+        //other.transform.position = new Vector3(xPos, yPos, zPos);
     }
 }
 

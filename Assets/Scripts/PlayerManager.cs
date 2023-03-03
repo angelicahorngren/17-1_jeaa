@@ -31,6 +31,7 @@ namespace SG {
 
         void Start()
         {
+            Debug.Log("Heeyy");
             cameraHandler = FindObjectOfType<CameraHandler>();
             inputHandler = GetComponent<ControlsMac>();
             dancesHandler = GetComponent < DancesHandler>();
