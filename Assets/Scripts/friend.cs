@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
+namespace SG{
 
 public class friend : MonoBehaviour
 {
     public GameObject player;
     public GameObject projectilePrefab; //prefab for the projectiles
+
     public float followDistance = 15f;  
     public float stopDistance = 10f;  
     public float startFollowDistance = 30f;
@@ -13,6 +15,7 @@ public class friend : MonoBehaviour
     public float hoverHeight = 10f; //boss hover height
     public float attackDelay = 1.0f; //delay between attacks
     public float projectileSpeed = 5f; //speed of the projectiles
+    private PlayerStats playerStats;
 
     public int health = 100; // boss's health
 
@@ -22,6 +25,7 @@ public class friend : MonoBehaviour
   void Start()
     {
         gameObject.layer = LayerMask.NameToLayer("Friend");
+        playerStats = player.GetComponent<PlayerStats>();
     }
 
   void Update()
@@ -33,11 +37,12 @@ public class friend : MonoBehaviour
         {
             //handle the boss's death
             DestroyFriend();
+           
             //Destroy(gameObject);
         }
 
         //if player within range and boss not already attacking
-        else if (distance <= stopDistance && !isAttacking)
+        else if (playerStats.currentHealth > 10 && distance <= stopDistance && !isAttacking)
         {
             isAttacking = true;
 
@@ -115,4 +120,4 @@ public void DestroyFriend()
 
 }
 
-
+}
