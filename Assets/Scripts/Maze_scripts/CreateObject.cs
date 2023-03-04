@@ -6,7 +6,7 @@ public class CreateObject : MonoBehaviour
 {
     public Transform Spawnpoint;
     public GameObject Prefab;
-    private bool hasSpawned = false;
+    public bool hasSpawned = false;
 
     void OnTriggerEnter(Collider other)
     {

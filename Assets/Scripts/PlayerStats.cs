@@ -20,7 +20,7 @@ namespace SG
             animaterHandler = GetComponentInChildren<AnimaterHandler>();
         }
 
-        void Start()
+        public void Start()
         {
             maxHealth = SetMaxHeathFromHealthLevel();
             currentHealth = maxHealth;
