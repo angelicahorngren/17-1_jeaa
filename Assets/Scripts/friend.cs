@@ -8,6 +8,10 @@ public class friend : MonoBehaviour
     public GameObject player;
     public GameObject projectilePrefab; //prefab for the projectiles
 
+    public GameObject keyObject;
+    public KeyTracker playerKeyTracker;
+
+
     public float followDistance = 15f;  
     public float stopDistance = 10f;  
     public float startFollowDistance = 30f;
@@ -108,37 +112,34 @@ public class friend : MonoBehaviour
 
 public void DestroyFriend()
 {
-    // Disable the collider and renderer of the friend object
+   
     GetComponent<Collider>().enabled = false;
     GetComponent<Renderer>().enabled = false;
 
-    // Play the dissolve particle effect
+    
     ParticleSystem dissolveParticle = Instantiate(dissolveEffect, transform.position + Vector3.up * 2f, Quaternion.identity);
     dissolveParticle.Play();
 
-    // Destroy the friend object after 5 seconds
+   
     Destroy(gameObject, 5f);
 
-    // Destroy the dissolve particle effect after 5 seconds
     Destroy(dissolveParticle.gameObject, 5f);
+    // GameObject keyObject = GameObject.FindGameObjectWithTag("Key");
+if (keyObject != null && !playerKeyTracker.HasKey && GameObject.FindGameObjectsWithTag("Key").Length < 2)
+{
+    Instantiate(keyObject, transform.position, Quaternion.identity);
+    //playerKeyTracker.HasKey = true;
+}
+
 }
 
 private IEnumerator DisplayParticleEffect(ParticleSystem particle, float duration)
 {
-    // Wait for the friend object to be destroyed
+    
     yield return new WaitForSeconds(duration);
-
-    // Play the dissolve particle effect again
     particle.Play();
-
-    // Destroy the particle effect after 5 seconds
     Destroy(particle.gameObject, 5f);
 }
-
-
-
-
-
 
 }
 
