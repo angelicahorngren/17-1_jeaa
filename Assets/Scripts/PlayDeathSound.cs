@@ -17,14 +17,19 @@ namespace SG
         private AudioSource audioSource; 
 
         bool audioPlayed = false;
+
+        private TrapSound trapSound;
+
+        private PlayerStats playerStats;
  
 
         private void Start()
             {
                 audioSource = GetComponent<AudioSource>();
                 audioSource.playOnAwake = false;
+
                 
-                //playerStats = player.GetComponent<PlayerStats>();
+                playerStats = player.GetComponent<PlayerStats>();
             }
 
         private void Update()
@@ -45,10 +50,13 @@ namespace SG
         }
 
         public void PlaySound(){
+            if(!playerStats.trapDeath){
             int randomIndex = Random.Range(0, objectSounds.Length);
             audioSource.clip = objectSounds[randomIndex]; 
             audioSource.Play(); 
             audioPlayed = true;
+            
         }
     }
+}
 }
