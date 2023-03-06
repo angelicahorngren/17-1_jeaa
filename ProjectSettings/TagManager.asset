@@ -9,6 +9,8 @@ TagManager:
   - friend
   - projectile
   - katana
+  - AI Bot
+  - Sword
   layers:
   - Default
   - TransparentFX
