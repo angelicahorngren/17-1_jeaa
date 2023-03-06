@@ -21,11 +21,14 @@ public class friend : MonoBehaviour
 
     private bool isAttacking = false; //flag to indicate if the boss is attacking
     private float attackTimer = 0.0f; //keep track of attack delay
+    public ParticleSystem dissolveEffect;
 
   void Start()
     {
         gameObject.layer = LayerMask.NameToLayer("Friend");
         playerStats = player.GetComponent<PlayerStats>();
+        dissolveEffect = transform.Find("DissolveEffect").GetComponent<ParticleSystem>();
+
     }
 
   void Update()
@@ -103,20 +106,39 @@ public class friend : MonoBehaviour
         health -= damage;
     }
 
-    
 public void DestroyFriend()
 {
-    
-    transform.Find("Stylized_Fish_Model").GetComponent<MeshRenderer>().enabled = false;
-    
-    
-    FadeOut fadeOut = GetComponent<FadeOut>();
-    if (fadeOut != null)
-    {
-        fadeOut.StartFadeOut();
-    }
- 
+    // Disable the collider and renderer of the friend object
+    GetComponent<Collider>().enabled = false;
+    GetComponent<Renderer>().enabled = false;
+
+    // Play the dissolve particle effect
+    ParticleSystem dissolveParticle = Instantiate(dissolveEffect, transform.position + Vector3.up * 2f, Quaternion.identity);
+    dissolveParticle.Play();
+
+    // Destroy the friend object after 5 seconds
+    Destroy(gameObject, 5f);
+
+    // Destroy the dissolve particle effect after 5 seconds
+    Destroy(dissolveParticle.gameObject, 5f);
 }
+
+private IEnumerator DisplayParticleEffect(ParticleSystem particle, float duration)
+{
+    // Wait for the friend object to be destroyed
+    yield return new WaitForSeconds(duration);
+
+    // Play the dissolve particle effect again
+    particle.Play();
+
+    // Destroy the particle effect after 5 seconds
+    Destroy(particle.gameObject, 5f);
+}
+
+
+
+
+
 
 }
 

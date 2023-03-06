@@ -11,6 +11,7 @@ TagManager:
   - katana
   - AI Bot
   - Sword
+  - Key
   layers:
   - Default
   - TransparentFX
