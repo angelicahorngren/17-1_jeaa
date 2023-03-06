@@ -622,6 +622,7 @@ GameObject:
   - component: {fileID: 144183845}
   - component: {fileID: 144183844}
   - component: {fileID: 144183843}
+  - component: {fileID: 144183852}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -660,6 +661,7 @@ MonoBehaviour:
   healthLevel: 10
   maxHealth: 0
   currentHealth: 0
+  trapDeath: 0
   healthBar: {fileID: 0}
 --- !u!114 &144183844
 MonoBehaviour:
@@ -826,6 +828,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &144183852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144183841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa84ded7c7ff9942bbeadb08639f1e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &152764960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36636,7 +36650,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2108623080
+--- !u!114 &2108623081
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36645,11 +36659,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2108623076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2b6961341e3844e2a5f0e0040381f48, type: 3}
+  m_Script: {fileID: 11500000, guid: 05f96756496640d4ba9bc3a08e54b7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
-  player: {fileID: 144183841}
+  keyTracker: {fileID: 144183852}
+  lockedClip: {fileID: 8300000, guid: 9decc299bfa1d47d2a774b0433e0a9c4, type: 3}
+  nextSceneName: Bedroom
 --- !u!4 &2108661666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 41ba2a6f1d128f94eba95e5213a81254, type: 3}
