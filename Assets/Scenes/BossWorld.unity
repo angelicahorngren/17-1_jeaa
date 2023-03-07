@@ -10798,11 +10798,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbd8aeb07e69eb438ace271f854a1cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heyClip: {fileID: 8300000, guid: 9decc299bfa1d47d2a774b0433e0a9c4, type: 3}
+  heyClip: {fileID: 8300000, guid: 68372130989ce4d6380d9fee0e722f61, type: 3}
   triggerRadius: 3
   triggerKey: 102
   player: {fileID: 1131982257}
-  screenFader: {fileID: 0}
 --- !u!54 &1608813041
 Rigidbody:
   m_ObjectHideFlags: 0
