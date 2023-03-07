@@ -8642,7 +8642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253b90721eb774abf9a886c25bfd343e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthLevel: 40
+  healthLevel: 45
   maxHealth: 0
   currentHealth: 0
   keyPrefab: {fileID: 700177222}
