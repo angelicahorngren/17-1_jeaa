@@ -1487,7 +1487,7 @@ MonoBehaviour:
   m_text: "Sprint: Hold Shift While Moving \nRoll: Press Shift While Moving\nBack
     step: Press Shift \nMelee Light Attack: E\nMelee Heavy Attack: R\nMelee Combo:
     E E\nMelee Combo: E R\nMelee Combo: E E R\nChange Weapon: Left and Right Arrows\nPowerUP:
-    UP Arrow\nDances: O and.P"
+    UP Arrow\nDances: O and P"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
