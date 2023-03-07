@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BossWorld.unity
     guid: 02d1718d188d34dae8042628a1f0ceac
+  - enabled: 1
+    path: Assets/Scenes/MainWorld2.unity
+    guid: 2449cc29ead21c24793fb3a1c3c0bf77
+  - enabled: 1
+    path: Assets/Scenes/Bedroom2.unity
+    guid: 7d77ecf632bb4fb4e91e819386c76d27
   - enabled: 0
     path: Assets/Scenes/BossScene.unity
     guid: b261177315d77474b8be12a4fd102349
@@ -29,11 +35,5 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/MainWorld2.unity
-    guid: 2449cc29ead21c24793fb3a1c3c0bf77
-  - enabled: 1
-    path: Assets/Scenes/Bedroom2.unity
-    guid: 7d77ecf632bb4fb4e91e819386c76d27
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: f6eb61d4ee447438893d5610fe49d6ba, type: 2}
