@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stellar - Space Whale Boss (Animated)
+* source:	https://sketchfab.com/3d-models/stellar-space-whale-boss-animated-234e56768ed34b25afdafc968f0459a2
+* author:	MonZombo (https://sketchfab.com/monzombo)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stellar - Space Whale Boss (Animated)" (https://sketchfab.com/3d-models/stellar-space-whale-boss-animated-234e56768ed34b25afdafc968f0459a2) by MonZombo (https://sketchfab.com/monzombo) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
