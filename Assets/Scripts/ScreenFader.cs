@@ -17,14 +17,11 @@ public class ScreenFader : MonoBehaviour
     public void FadeIn()
     {
         StartCoroutine(Fade(1));
-        Debug.Log("FadeIn");
     }
 
     public void FadeOut()
     {
         StartCoroutine(Fade(0));
-        Debug.Log("FadeOut");
-
     }
 
     private IEnumerator Fade(float targetAlpha)
