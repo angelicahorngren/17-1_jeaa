@@ -390,6 +390,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8319719346520780546, guid: def6cc198d8d042db863866e57e00a6b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319719346520780546, guid: def6cc198d8d042db863866e57e00a6b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319719346520780546, guid: def6cc198d8d042db863866e57e00a6b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 23770886}
+    - target: {fileID: 8319719346520780546, guid: def6cc198d8d042db863866e57e00a6b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319719346520780546, guid: def6cc198d8d042db863866e57e00a6b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319719346520780546, guid: def6cc198d8d042db863866e57e00a6b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319719346520780546, guid: def6cc198d8d042db863866e57e00a6b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8319719346556197448, guid: def6cc198d8d042db863866e57e00a6b, type: 3}
       propertyPath: m_Name
       value: Menu
@@ -1940,6 +1968,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7667994360440890509, guid: 5fa66e79a6709415b8be6e0cdf40d3ba, type: 3}
+      propertyPath: leftWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 2cfb0c59843834d05855a9189b7b6005, type: 2}
+    - target: {fileID: 7667994360440890509, guid: 5fa66e79a6709415b8be6e0cdf40d3ba, type: 3}
+      propertyPath: rightWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 2cfb0c59843834d05855a9189b7b6005, type: 2}
     - target: {fileID: 7667994360440890516, guid: 5fa66e79a6709415b8be6e0cdf40d3ba, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -5873,7 +5909,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh424066
+  m_Name: pb_Mesh625884
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20110,7 +20146,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh424438
+  m_Name: pb_Mesh626256
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20652,7 +20688,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh423630
+  m_Name: pb_Mesh625436
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
