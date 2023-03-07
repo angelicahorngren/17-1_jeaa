@@ -6,6 +6,7 @@ public class InvisibleTrigger : MonoBehaviour
     public float triggerRadius = 1f;
     public KeyCode triggerKey = KeyCode.F; 
     public GameObject player;
+    //public GameObject screenFader;
 
     private bool isPlayerInRange = false; 
 
@@ -13,6 +14,7 @@ public class InvisibleTrigger : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(triggerKey))
         {
+            //screenFader.GetComponent<ScreenFader>().FadeIn();  
             AudioSource.PlayClipAtPoint(heyClip, transform.position);
         }
     }
@@ -23,6 +25,7 @@ public class InvisibleTrigger : MonoBehaviour
         {
             isPlayerInRange = true;
         }
+        //screenFader.GetComponent<ScreenFader>().FadeIn();  
     }
 
     private void OnTriggerExit(Collider other)

@@ -23,7 +23,6 @@ namespace SG
 
     private void Reload()
     {
-        Debug.Log("Reload");
         screenFader.GetComponent<ScreenFader>().FadeOut();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
