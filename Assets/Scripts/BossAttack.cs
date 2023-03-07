@@ -6,6 +6,7 @@ namespace SG
 {
     public class BossAttack : MonoBehaviour
     {
+        public PlayDeathSound playDeathSound;
         public int attackDamage = 20;
         public Vector3 attackOffset;
         public float attackRange = 1f;
@@ -30,10 +31,13 @@ PlayerStats playerStats = player.GetComponent<PlayerStats>();
     pos += transform.right * attackOffset.x;
     pos += transform.up * attackOffset.y;
 
-    if (bossCollider.bounds.Contains(playerStats.transform.position))
+    if (bossCollider.bounds.Contains(playerStats.transform.position) && playerStats.currentHealth > 0)
     {
         Debug.Log("Player hit!");
         playerStats.TakeDamage(attackDamage);
+        if(playerStats != null && playerStats.currentHealth <= 0){
+            playDeathSound.PlaySound();
+        }
     }
 }
 
