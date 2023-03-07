@@ -6,22 +6,28 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 02adea5f4ef91d143b10d8084f9d8df0
+  - enabled: 1
+    path: Assets/Scenes/Bedroom.unity
+    guid: f62a14b1a06054cf0a5827cb09a72ef5
+  - enabled: 1
     path: Assets/Scenes/MainWorld.unity
     guid: 90d5608a7ea7840e491c6b339bed5bc8
   - enabled: 1
     path: Assets/Scenes/Labyrinth_main.unity
     guid: 57b204f80ac2d48968ff35aedfd62a53
   - enabled: 1
+    path: Assets/Scenes/BossWorld.unity
+    guid: 02d1718d188d34dae8042628a1f0ceac
+  - enabled: 0
     path: Assets/Scenes/BossScene.unity
     guid: b261177315d77474b8be12a4fd102349
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/BossWorld.unity
-    guid: 02d1718d188d34dae8042628a1f0ceac
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: f6eb61d4ee447438893d5610fe49d6ba, type: 2}

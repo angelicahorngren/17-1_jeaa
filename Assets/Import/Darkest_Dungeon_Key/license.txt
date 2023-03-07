@@ -1,0 +1,11 @@
+Model Information:
+* title:	Darkest Dungeon Key
+* source:	https://sketchfab.com/3d-models/darkest-dungeon-key-c8d3ec39bde64ab29a78b06a2648986e
+* author:	Smoggybeard (https://sketchfab.com/Smoggybeard)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Darkest Dungeon Key" (https://sketchfab.com/3d-models/darkest-dungeon-key-c8d3ec39bde64ab29a78b06a2648986e) by Smoggybeard (https://sketchfab.com/Smoggybeard) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

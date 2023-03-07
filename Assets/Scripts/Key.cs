@@ -9,7 +9,7 @@ public class Key : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && IsPlayerLookingAtKey())
         {
-            Destroy(gameObject, 5f);
+            Destroy(gameObject, 1f);
 
             playerKeyTracker.HasKey = true;
         }

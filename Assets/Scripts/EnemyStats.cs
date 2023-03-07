@@ -8,8 +8,9 @@ public class EnemyStats : MonoBehaviour
     public int healthLevel = 10;
     public int maxHealth;
     public int currentHealth;
+    public GameObject keyPrefab; 
 
-    Animator animator;
+    private Animator animator;
 
     private void Awake()
     {
@@ -20,7 +21,6 @@ public class EnemyStats : MonoBehaviour
     {
         maxHealth = SetMaxHeathFromHealthLevel();
         currentHealth = maxHealth;
-
     }
 
     private int SetMaxHeathFromHealthLevel()
@@ -29,17 +29,20 @@ public class EnemyStats : MonoBehaviour
         return maxHealth;
     }
 
-
     public void TakeDamage(int damage)
     {
         currentHealth = currentHealth - damage;
 
-        animator.Play("Take Damage");
+        animator.Play("Defence 2");
 
         if (currentHealth <= 0)
         {
-            currentHealth = 0;
-            animator.Play("Death_Enemy");
+            //animator.speed = -1f;
+            animator.SetTrigger("Dead");
+
+            GameObject key = Instantiate(keyPrefab, transform.position, Quaternion.identity);
+
+           // Destroy(gameObject);
         }
     }
 }
