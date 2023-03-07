@@ -586,7 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ae06db38b484880adda23926f55c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 4
+  delay: 8
   screenFader: {fileID: 43531189}
 --- !u!1 &57051490
 GameObject:

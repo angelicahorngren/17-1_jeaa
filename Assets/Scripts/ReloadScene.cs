@@ -9,13 +9,15 @@ namespace SG
 
         public GameObject screenFader;
 
-            private void Update()
+    private void Update()
     {
         PlayerStats playerStats = FindObjectOfType<PlayerStats>();
         if (playerStats != null && playerStats.currentHealth == 0)
         {
             Invoke("Reload", delay);
-            screenFader.GetComponent<ScreenFader>().FadeIn();
+            if(screenFader != null){
+                screenFader.GetComponent<ScreenFader>().FadeIn();  
+            }
         }
     }
 
