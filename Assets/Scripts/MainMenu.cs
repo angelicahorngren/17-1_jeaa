@@ -12,4 +12,12 @@ public class MainMenu : MonoBehaviour
     public void QuitGame(){
         Application.Quit();
     }
+    
+    public void CloseMenu(){
+        Time.timeScale = 1f;
+    }
+
+    public void Pause(){
+        Time.timeScale = 0f;
+    }
 }
