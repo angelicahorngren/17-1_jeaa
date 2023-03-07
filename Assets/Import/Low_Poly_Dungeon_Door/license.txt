@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low Poly Dungeon Door
+* source:	https://sketchfab.com/3d-models/low-poly-dungeon-door-1e1a3de2f4fc4e118cf81451227b35e6
+* author:	elliothunter72 (https://sketchfab.com/elliothunter72)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low Poly Dungeon Door" (https://sketchfab.com/3d-models/low-poly-dungeon-door-1e1a3de2f4fc4e118cf81451227b35e6) by elliothunter72 (https://sketchfab.com/elliothunter72) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

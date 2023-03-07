@@ -38,6 +38,7 @@ namespace SG
 
         public void TakeDamage(int damage)
         {
+            Debug.Log("Took damage: " + damage);
 
             currentHealth = currentHealth - damage;
             healthBar.SetCurrentHealth(currentHealth);

@@ -12,6 +12,7 @@ TagManager:
   - AI Bot
   - Sword
   - Key
+  - Enemy,AI Bot
   layers:
   - Default
   - TransparentFX
