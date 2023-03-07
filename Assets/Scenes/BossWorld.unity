@@ -8263,7 +8263,7 @@ MonoBehaviour:
   sceneName: MainWorld2
   triggerKey: 102
   switchDelay: 1
-  audioClip: {fileID: 8300000, guid: 43566141ed9e640ef8b8d6446a111caa, type: 3}
+  audioClip: {fileID: 8300000, guid: cc3b884d5d1276f41b2780b53ea794ad, type: 3}
 --- !u!82 &937067854
 AudioSource:
   m_ObjectHideFlags: 0
